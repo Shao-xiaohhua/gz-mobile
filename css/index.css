@@ -330,12 +330,14 @@ p {
   .input-box .xn-input {
     width: 100%;
     height: 100%;
-    font-size: 18px;
+    font-size: 24px;
+    padding-left: 1rem;
     color: transparent;
     background: transparent;
     border: none;
     outline: none;
-    text-align: center; }
+    text-align: left;
+    letter-spacing: .8rem; }
   .input-box .flex-box-input {
     width: 100%;
     height: .8rem;
