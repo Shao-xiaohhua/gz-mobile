@@ -1,0 +1,330 @@
+* {
+  box-sizing: border-box
+}
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-size: 16px;
+  &.bd-bg {
+    background: #1ab394;
+  }
+}
+html {
+  width: 100%;
+  min-height: 100%;
+}
+/*$designdraft为设计稿宽度，可以随时按照设计师发来的设计稿改动*/
+@mixin user($designdraft){
+  /*以下为各个主流移动设备宽度必须从大到小排列；
+  ipad pro:1024px;
+  ipad:768px;
+  iphone6+:414px;
+  iphone6:375px;
+  iphone5:320px
+  */
+  $list:1024px,900px,812px,800px,768px,720px,650px,590px,530px,500px,450px,414px,412px,384px,375px,360px,320px;
+  @each $i in $list{
+    /*12栅格系统*/
+    @media screen and (max-width:#{$i}){
+      html{
+        /*使用rem，根据比例换算出需要的像素，6px等于.06rem*/
+        font-size: 100px*($i/$designdraft);
+      }
+    }
+  }
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+p {
+  margin: 0;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+//这里输入设计稿宽度
+@include user(750px);
+.clearfix {
+  &:after, 
+  &:before {
+    content: "";
+    display: block;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.navbar {
+  width: 100%;
+  height: 44px;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  font-size: 18px;
+  background: #313131;
+}
+.content-wrap {
+  width: 100%;
+  height: auto;
+  padding: .23rem .21rem;
+  .box {
+    width: 100%;
+    height: auto;
+    padding-top: .57rem;
+    padding-bottom: .5rem;
+    background: #fff;
+    border-radius: 6px;
+  }
+  .pic {
+    width: 3.21rem;
+    height: 2.11rem;
+    margin: 0 auto;
+    background-size: 100% 100%;
+  }
+  h1 {
+    padding-top: .6rem;
+    padding-bottom: .7rem;
+    margin: 0;
+    line-height: 100%;
+    text-align: center;
+    font-size: .36rem;
+    color: #333333;
+  }
+}
+.list-wrap {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0 .4rem 0 .4rem;
+  list-style-type: none;
+  .list {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: .3rem;
+    margin-bottom: .3rem;
+    line-height: 100%;
+    font-size: 15px;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: #e6f2f0;
+      transform: scaleY(.5);
+    }
+    .name {
+      width: 30%;
+      text-align: left;
+      color: #666666;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    .content {
+      width: 70%;
+      text-align: right;
+      color: #333333;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .list:last-child:before {
+    display: none;
+  }
+}
+.link-button {
+  width: 6.14rem;
+  height: .72rem;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  line-height: .72rem;
+  color: #fff;
+  font-size: 15px;
+  background: #1ab394;
+  border-radius: 6px;
+  &:active {
+    background: #1b6b5b;
+  }
+}
+.title {
+  width: 100%;
+  margin: 0;
+  padding-top: .56rem;
+  line-height: 100%;
+  font-size: .6rem;
+  font-weight: 400;
+  text-align: center;
+  font-family: "kaiti";
+}
+.gz-number {
+  width: 100%;
+  height: auto;
+  padding-top: .56rem;
+  line-height: 100%;
+  text-align: right;
+  font-family: 'SimSun';
+  font-size: .38rem;
+}
+.applicant {
+  width: 100%;
+  height: auto;
+  line-height: .70rem;
+  padding-top: .56rem;
+  font-family: 'SimSun';
+  font-size: .38rem;
+  .head {
+    width: 1.52rem;
+    height: auto;
+  }
+  .body {
+    width: calc(100% - 1.52rem);
+    height: auto;
+  }
+}
+.gz-content, .inscribe, {
+  width: 100%;
+  height: auto;
+  padding-top: .56rem;
+  font-family: 'SimSun';
+  font-size: .38rem;
+  line-height: .70rem;
+  .org {
+    text-align: right;
+  }
+  .ins-name {
+    position: relative;
+    width: 100%;
+    height: auto;
+    .name-pic {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 2rem;
+      height: .76rem;
+      background-size: 100% 100%;
+    }
+  }
+  .notary {
+    text-align: right;
+    padding-top: .56rem;
+    padding-right: 2.3rem;
+  }
+  .timestamp {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 1.4rem;
+  }
+  .timepic {
+    position: absolute;
+    right: 1.6rem;
+    top: .8rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 100% 100%;
+  }
+  .time {
+    padding-right: 1.2rem;
+    text-align: right;
+    padding-bottom: 5rem;
+  }
+}
+.bd-password {
+  background: url(../images/password_bg.jpg);
+  background-size: cover;
+}
+.input-box {
+  margin: 0 auto;
+  width: 5.7rem;
+  height: auto;
+  .flex-box-input {
+    width: 100%;
+    height: .8rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-around;
+    background: transparent;
+  }
+  .child-wrap {
+    width: .8rem;
+    height: 100%;
+    display: inline-flex;
+    background: transparent;
+    border-bottom: 3px solid #717077;
+    &.active {
+      border-bottom: 3px solid #fff;
+    }
+  }
+  .child-input {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  .text-content {
+    width: 100%;
+    height: .72rem;
+    margin-bottom: .38rem;
+    padding-left: .23rem;
+    padding-right: .23rem;
+    text-align: center;
+    letter-spacing: .5rem;
+    font-size: 13px;
+    color: #333;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    border-radius: 6px; 
+  }
+  .false-hints {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: .8rem;
+    &.active {
+      color: red;
+    }
+  }
+}
+.logo-box {
+  width: 3.24rem;
+  height: 2.46rem;
+  margin: 1.7rem auto .9rem auto;
+  background: url(../images/logo.png);
+  background-size: 100% 100%;
+}
+.password-link {
+  width: 6.9rem;
+  height: .88rem;
+  margin: 0 auto;
+  text-align: center;
+  line-height: .88rem;
+  font-size: 18px;
+  color: #fff;
+  background: #1ab394;
+  display: block;
+  border-radius: 6px;
+}
